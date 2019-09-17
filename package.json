@@ -1,6 +1,6 @@
 {
   "name": "create-zigzag-app",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "bin": "./index.js",
   "dependencies": {
     "inquirer": "^7.0.0",
