@@ -1,7 +1,21 @@
 #!/usr/bin/env node
 
-console.log(`
-당신의 컴퓨터(Node 버전: ${process.versions.node})는 해킹되었습니다 :)
--괴도 Troy-
-`);
+const name = 'create-zigzag-app';
+const inquirer = require('inquirer');
 
+inquirer
+  .prompt({
+    name,
+    type: 'list',
+    message: '고르세요. Choose.',
+    choices: [
+      'Vanilla',
+      'React',
+      'React + MaterialUI',
+      'Next.js',
+      'Next.js + MaterialUI'
+    ]
+  })
+  .then((v) => {
+    console.log(v[name]);
+  });
