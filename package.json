@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "bin": "./hacking.js",
   "dependencies": {
-    "inquirer": "^7.0.0"
+    "inquirer": "^7.0.0",
+    "fs-extra": "^8.1.0"
   }
 }
