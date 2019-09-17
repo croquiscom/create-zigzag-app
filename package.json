@@ -2,7 +2,7 @@
   "name": "create-zigzag-app",
   "version": "0.0.0",
   "bin": "./hacking.js",
-  "devDependencies": {
+  "dependencies": {
     "inquirer": "^7.0.0"
   }
 }
