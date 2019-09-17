@@ -17,9 +17,8 @@ inquirer
       'Next.js + MaterialUI'
     ]
   })
-  .then((v) => {
-    console.log(v[name]);
-    fs.copy(__dirname, `${process.cwd()}/${name}`)
+  .then((value) => {
+    fs.copy(__dirname, `${process.cwd()}/${value[name]}`)
       .then(() => console.log('성공했어요! Success!!'))
       .catch(console.error);
   });
