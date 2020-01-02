@@ -1,32 +1,35 @@
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;
 const Path = require("path");
 
 module.exports = (env, arg) => {
   const config = {
-    entry: "./src/index.ts",
+    entry: "./src/index.tsx",
     output: {
       path: Path.join(process.cwd(), "dist"),
       filename: "[name].[chunkhash].js",
       crossOriginLoading: false
     },
     resolve: {
-      extensions: [".js", ".ts"]
+      extensions: [".js", ".jsx", ".ts", ".tsx"]
     },
     module: {
       rules: [{
-        test: /\.(png|jpe?g)$/,
+        test: /\.(png|jpg|svg|eot|woff|woff2)$/,
         loader: "file-loader"
       }, {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         loader: "ts-loader"
       }, {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader,
-          "css-loader",
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: 'local'
+            }
+          },
           {
             loader: "postcss-loader",
             options: {
@@ -43,10 +46,6 @@ module.exports = (env, arg) => {
       }]
     },
     plugins: [
-      new MiniCssExtractPlugin({
-        filename: "[name].scss",
-        chunkFilename: "[id].scss"
-      }),
       new HtmlWebpackPlugin({
         template: "./src/index.html",
         favicon: "./src/favicon.ico",
@@ -56,12 +55,11 @@ module.exports = (env, arg) => {
           collapseWhitespace: true,
           removeComments: true
         }
-      }),
-      new HTMLInlineCSSWebpackPlugin()
+      })
     ],
     devServer: {
-      port: 4200,
       host: '0.0.0.0',
+      port: 4200,
       historyApiFallback: true
     },
   };
