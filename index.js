@@ -32,6 +32,7 @@ inquirer
     const target = value[name];
     switch (target) {
       case 'vanilla':
+      case 'react':
         spinner.start();
         fs.copy(
             path.resolve(__dirname, target),
