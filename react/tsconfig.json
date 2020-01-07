@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": "..",
+    "strict": true,
+    "jsx": "react",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "isolatedModules": true,
+    "removeComments": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"],
+  "compileOnSave": false
+}
