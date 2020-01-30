@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Path = require("path");
 
 module.exports = (env, arg) => {
+  const STAGE = arg.stage || 'alpha';
+
   const config = {
     entry: "./src/index.tsx",
     output: {
@@ -47,15 +49,12 @@ module.exports = (env, arg) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: "./src/index.html",
-        favicon: "./src/favicon.ico",
-        minify: {
-          collapseBooleanAttributes: true,
-          collapseInlineTagWhitespace: true,
-          collapseWhitespace: true,
-          removeComments: true
-        }
-      })
+        template: "./public/index.html",
+        favicon: "./public/favicon.ico",
+        minify: true,
+        title: 'create-zigzag-app' // 변경해야함.., 수정을 강제하는 설정은 없을까?
+      }),
+      new webpack.DefinePlugin({ STAGE: JSON.stringify(STAGE) })
     ],
     devServer: {
       host: '0.0.0.0',
