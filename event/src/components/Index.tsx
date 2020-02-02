@@ -9,7 +9,7 @@ import App from './App';
 import ProtectedRoute from './common/route/ProtectedRoute';
 import { Context } from './context/appContext';
 import ReducerContext from './context/appReducerContext';
-import reducer from './reducer/appReducer';
+import reducer from './reducer/appReducer';s
 import '../styles/reset.scss';
 
 const Root = () => {
@@ -21,7 +21,9 @@ const Root = () => {
   return (
     <Router>
       <ReducerContext.Provider value={initContextValue}>
-        <ProtectedRoute exact path="/" component={App}/>
+        <Switch>
+          <ProtectedRoute exact path="/" component={App}/>
+        </Switch>
       </ReducerContext.Provider>
     </Router>
   );
