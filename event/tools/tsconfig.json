@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "target": "es2017",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "lib": [
+      "es2017",
+      "esnext.asynciterable"
+    ],
+    "strict": true
+  },
+  "include": [
+    "./install_all_node_modules.ts",
+  ]
+}

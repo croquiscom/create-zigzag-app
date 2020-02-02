@@ -1,0 +1,12 @@
+#  Common Queries
+
+mutation AuthorizeMobileToken($input: AuthorizeMobileTokenForEventInput!) {
+    authorizeMobileTokenForEvent(input: $input)
+}
+ 
+mutation RequestAuthenticationToken($input: RequestAuthenticationTokenForEventInput!) { 
+    requestAuthenticationTokenForEvent(input: $input) {
+      success
+      already_email
+    }
+}
