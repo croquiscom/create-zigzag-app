@@ -1,12 +1,13 @@
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Path = require("path");
+const webpack = require('webpack');
 
 module.exports = (env, arg) => {
   const STAGE = arg.stage || 'alpha';
 
   const config = {
-    entry: "./src/index.tsx",
+    entry: "./src/components/index.tsx",
     output: {
       path: Path.join(process.cwd(), "dist"),
       filename: "[name].[chunkhash].js",
