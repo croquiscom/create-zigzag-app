@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 import App from './App';
-import ProtectedRoute from './common/route/ProtectedRoute';
+import ProtectedRoute from './route/ProtectedRoute';
 import '../styles/reset.scss';
 import ContextProvider from '../context/ContextProvider';
 

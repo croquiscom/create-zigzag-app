@@ -9,8 +9,9 @@ export enum EVENT_STATUS {
 export interface EventInfo {
   event_terminated: boolean;
   event_detail: any;
-  server_time: number;
+  event_error?: string;
   event_status: EVENT_STATUS;
+  server_time: number;
 }
 
 export interface Event {

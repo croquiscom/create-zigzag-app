@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import ZigzagAppAction from '../../../utils/ZigzagAppAction';
-import { ZIGZAG_APP_STORE_URL } from '../../../constants/urls';
+import ZigzagAppAction from '../../utils/ZigzagAppAction';
+import { ZIGZAG_APP_STORE_URL } from '../../constants/urls';
 
 const toZigzagBridge = (url: string) => url && window.location.replace(url);
 const toZigzagAppStore = () => {
