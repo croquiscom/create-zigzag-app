@@ -1,4 +1,4 @@
-import React, { useReducer, useContext } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -7,24 +7,17 @@ import {
 
 import App from './App';
 import ProtectedRoute from './common/route/ProtectedRoute';
-import { Context } from './context/appContext';
-import ReducerContext from './context/appReducerContext';
-import reducer from './reducer/appReducer';s
 import '../styles/reset.scss';
+import ContextProvider from '../context/ContextProvider';
 
 const Root = () => {
-
-  const initialState = useContext(Context);
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const initContextValue = { state, dispatch };
-
   return (
     <Router>
-      <ReducerContext.Provider value={initContextValue}>
+      <ContextProvider>
         <Switch>
           <ProtectedRoute exact path="/" component={App}/>
         </Switch>
-      </ReducerContext.Provider>
+      </ContextProvider>
     </Router>
   );
 };

@@ -1,0 +1,1 @@
+export const ZIGZAG_APP_STORE_URL = 'https://zigzag.onelink.me/4107287618/30d5a1a8';

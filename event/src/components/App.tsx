@@ -1,5 +1,4 @@
-import React, { useContext, useCallback } from 'react';
-import Context from './context/appReducerContext';
+import React from 'react';
 
 const App = () => {
   return(
