@@ -22,6 +22,8 @@ inquirer
     message: 'Select one!',
     choices: [
       'vanilla',
+      'event-vanilla',
+      'event-react',
       'react',
       'react-material-ui',
       'nextjs',
@@ -33,6 +35,7 @@ inquirer
     switch (target) {
       case 'vanilla':
       case 'react':
+      case 'event-react':  
         spinner.start();
         fs.copy(
             path.resolve(__dirname, target),
