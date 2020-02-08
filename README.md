@@ -33,3 +33,10 @@ Select what you want!
 ### Step3
 
 Enjoy :)
+
+
+
+# TODO
+
+1. fs 모듈을 통해 파일정보 수정 (package.json, folder_name 등..)
+2. browserslist 세팅

@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-
 interface RequestOptions {
   headers?: any;
   method?: string;
@@ -16,34 +14,9 @@ const API_ENDPOINTS: any = {
   development: LOCAL_ENDPOINTS,
 };
 
-export const api_url = STAGE ? API_ENDPOINTS[STAGE] : LOCAL_ENDPOINTS;
+const api_url = STAGE ? API_ENDPOINTS[STAGE] : LOCAL_ENDPOINTS;
 
-export const useRequest = (initData: any, params: RequestOptions, show_alert: boolean = true) => {
-  
-  const [data, setData] = useState(initData);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [error_code, setErrorCode] = useState('');
-  
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsError(false);
-      setIsLoading(true);
-      try {
-        const result = await request(params, show_alert);
-        setData(result.data);
-      } catch (error) {
-        setIsError(true);
-        setErrorCode(error);
-      }
-      setIsLoading(false);
-    };
-    fetchData();
-  }, []);
-  return [{ data, isLoading, isError, error_code }];
-};
-
-export async function request(params: RequestOptions, show_alert: boolean = true) {
+export default async function request(params: RequestOptions, show_alert: boolean = true) {
   const url = `${api_url}/${params.url.replace(/^\//, '')}`;
   const request_init: RequestInit = {
     method: params.method || 'GET',
