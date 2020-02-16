@@ -1,21 +1,25 @@
 import React from 'react';
-import { EventContext } from './EventContext';
-import { UserContext } from './UserContext';
 import { useEventInfo } from '../hooks/useEventInfo';
-import { useUserInfo } from '../hooks/useUserInfo';
 import { usePopup } from '../hooks/usePopup';
+import { useUserInfo } from '../hooks/useUserInfo';
+import { EventContext } from './EventContext';
+import { PopupContext } from './PopupContext';
+import { UserContext } from './UserContext';
 
 const ContextProvider = (props: any) => {
   const event = useEventInfo();
   const user = useUserInfo();
+  const popup = usePopup();
 
   return(
-    <EventContext.Provider value={event}>
-      <UserContext.Provider value={user}>
-        {props.children}
-      </UserContext.Provider>
-    </EventContext.Provider>
-  )
+    <PopupContext.Provider value={popup}>
+      <EventContext.Provider value={event}>
+        <UserContext.Provider value={user}>
+          {props.children}
+        </UserContext.Provider>
+      </EventContext.Provider>
+    </PopupContext.Provider>
+  );
 };
 
 export default ContextProvider;
